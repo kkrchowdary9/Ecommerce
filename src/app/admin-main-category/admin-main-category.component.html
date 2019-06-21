@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <h5 style="text-align:center">MAIN CATEGORY</h5>
+    <div class="col-3"><br/>
+             <select id="selectData" (change)="getSuperCtId()"  class="form-control">
+                <option *ngFor="let item of tableObj1" value="{{item.super_category_aws_id}}">{{item.super_category_name}}</option>
+             </select><br/>
+             <input class="form-control" [(ngModel)]="obj.mainName" name="obj.mainName" >
+          <button class="btn btn-primary" (click)="addMainCategoris()">submit</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+      </div>
+      <div class="col-6">
+        <table class="table table-bordered table-stripped text-center">
+          <tr >
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>SupercatgryID</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+          <tr *ngFor="let item of tabObj">
+            <td><i (click)="UpdateMe(item.main_category_aws_id)" class='fas fa-edit' style='font-size:24px'></i></td>
+            <td><i (click)="DeleteMe(item.main_category_aws_id)" class='fas fa-trash' style='font-size:24px'></i></td>
+            <td>{{item.super_category_ids}}</td>
+            <td>{{item.main_category_aws_id}}</td>
+            <td>{{item.main_category_name}}</td>
+            <td>{{item.main_category_active}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Update Main category</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+            <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="updateObj1.superID" name="updateObj1.superID">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="updateObj1.mainName" name="updateObj1.mainName">
+          </div>
+          <button class="btn btn-primary" (click)="UpdateMe1()" >Submit</button>
+          {{updateMesg1}}
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+

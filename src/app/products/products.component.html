@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-3">
+
+      <div class="form-group input-group">
+          <span class="input-group-addon"><i class="glyphicon glyphicon-paperclip"></i></span>
+          <input type="file" id="image1" class="form-control" placeholder="images">
+      </div>
+      <div class="form-group">
+          <label>title:</label>
+          <input type="text" class="form-control" [(ngModel)]="obj.name" name="obj.name" placeholder="title name">
+      </div>
+      <div class="form-group">
+        <label>price:</label>
+          <input type="text" class="form-control" [(ngModel)]="obj.price" name="obj.price" placeholder="price">
+      </div>
+     <button type="button" class="btn btn-primary" (click)="addProdcuts()"> SUBMIT</button>
+     {{mesg}}
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+      <div class="col-3">
+      </div>
+      <div class="col-6"><br/>
+
+        <table class="table table-bordered table-stripped text-center">
+
+         <tr>
+            <th>Id</th>
+            <th>name</th>
+            <th>Price</th>
+            <th>Image</th>
+         </tr>
+         <tr *ngFor="let item of tableObj">
+           <td>{{item.images_id}}</td>
+           <td>{{item.product}}</td>
+           <td>{{item.price}}</td>
+           <td><img src="{{path+item.images_url}}" width="70px " height="70px"></td>
+         </tr>
+        </table>
+        </div>
+      </div>
+    </div>
